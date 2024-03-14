@@ -12,7 +12,12 @@ services.AddSwaggerGen();
 
 services.AddMassTransitServices();
 
+services.AddProblemDetails();
+
 var app = builder.Build();
+
+app.UseExceptionHandler();
+app.UseStatusCodePages();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
